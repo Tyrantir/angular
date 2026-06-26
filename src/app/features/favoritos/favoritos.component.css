@@ -1,0 +1,74 @@
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem;
+  background: color-mix(in oklab, var(--ink-2) 70%, transparent);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.thumb {
+  width: 52px;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.nome {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--paper);
+}
+
+.nome:hover {
+  color: var(--sakura);
+}
+
+.nota {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.remover {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.remover:hover {
+  color: var(--sakura);
+  border-color: var(--sakura);
+}

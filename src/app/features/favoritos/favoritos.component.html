@@ -1,0 +1,24 @@
+<h1 class="title">Favoritos</h1>
+
+@if (loading()) {
+  <p role="status">Carregando…</p>
+} @else if (erro()) {
+  <p role="alert" class="erro">{{ erro() }}</p>
+} @else if (favoritos().length === 0) {
+  <p class="empty">Nada salvo ainda. Encontre animes na busca e toque no coração.</p>
+} @else {
+  <ul class="lista">
+    @for (fav of favoritos(); track fav.malId) {
+      <li class="item">
+        <img [src]="fav.imagemUrl" [alt]="fav.titulo" class="thumb" />
+        <div class="meta">
+          <a [routerLink]="['/anime', fav.malId]" class="nome">{{ fav.titulo }}</a>
+          @if (fav.nota !== null) {
+            <span class="nota">★ {{ fav.nota }}</span>
+          }
+        </div>
+        <button type="button" class="remover" (click)="remover(fav)">Remover</button>
+      </li>
+    }
+  </ul>
+}

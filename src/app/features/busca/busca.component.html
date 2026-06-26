@@ -1,0 +1,30 @@
+<section class="hero">
+  <p class="eyebrow">Catálogo de animes · dados via MyAnimeList</p>
+  <h1 class="hero-title">Procure seu<br /><em>próximo</em> anime.</h1>
+  <div class="search">
+    <input
+      type="search"
+      [formControl]="searchControl"
+      placeholder="Naruto, One Piece, Frieren…"
+      aria-label="Buscar animes"
+    />
+  </div>
+</section>
+
+@if (loading()) {
+  <p role="status">Buscando…</p>
+} @else if (erro()) {
+  <p role="alert" class="erro">{{ erro() }}</p>
+} @else if (animes().length === 0) {
+  <p class="hint">Digite ao menos 2 letras para começar.</p>
+} @else {
+  <div class="grid">
+    @for (anime of animes(); track anime.malId) {
+      <app-anime-card
+        [anime]="anime"
+        [favorito]="favoritos().has(anime.malId)"
+        (toggleFavorito)="onToggleFavorito($event)"
+      />
+    }
+  </div>
+}

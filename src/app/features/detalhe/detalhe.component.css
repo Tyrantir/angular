@@ -1,0 +1,57 @@
+.back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: var(--sakura);
+}
+
+.detalhe {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) 1fr;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  align-items: start;
+}
+
+.poster {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.9);
+}
+
+.info h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.nota {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--sakura);
+  padding: 0.25rem 0.7rem;
+  border-radius: 8px;
+  margin: 0 0 1.5rem;
+}
+
+.sinopse {
+  max-width: 62ch;
+  color: color-mix(in oklab, var(--paper) 88%, transparent);
+  white-space: pre-line;
+}
+
+@media (max-width: 640px) {
+  .detalhe {
+    grid-template-columns: 1fr;
+  }
+
+  .poster {
+    max-width: 240px;
+  }
+}

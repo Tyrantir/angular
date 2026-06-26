@@ -1,0 +1,20 @@
+<a routerLink="/" class="back">← Voltar à busca</a>
+
+@if (loading()) {
+  <p role="status">Carregando…</p>
+} @else if (erro()) {
+  <p role="alert" class="erro">{{ erro() }}</p>
+} @else {
+  @if (anime(); as a) {
+    <article class="detalhe">
+      <img [src]="a.imagemUrl" [alt]="a.titulo" class="poster" />
+      <div class="info">
+        <h1>{{ a.titulo }}</h1>
+        @if (a.nota !== null) {
+          <p class="nota">★ {{ a.nota }}</p>
+        }
+        <p class="sinopse">{{ a.sinopse }}</p>
+      </div>
+    </article>
+  }
+}

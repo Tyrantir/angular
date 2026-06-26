@@ -1,0 +1,14 @@
+<header class="topbar">
+  <a routerLink="/" class="brand">
+    <span class="brand-mark">アニメ</span>
+    <span class="brand-name">Catálogo</span>
+  </a>
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Buscar</a>
+    <a routerLink="/favoritos" routerLinkActive="active">Favoritos</a>
+  </nav>
+</header>
+
+<main class="container">
+  <router-outlet />
+</main>

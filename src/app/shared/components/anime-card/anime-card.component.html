@@ -1,0 +1,23 @@
+@let a = anime();
+
+<article class="card">
+  <a [routerLink]="['/anime', a.malId]" class="card-link">
+    <div class="poster-wrap">
+      <img [src]="a.imagemUrl" [alt]="a.titulo" class="poster" loading="lazy" />
+      @if (a.nota !== null) {
+        <span class="nota">{{ a.nota }}</span>
+      }
+    </div>
+    <h3 class="titulo">{{ a.titulo }}</h3>
+  </a>
+  <button
+    type="button"
+    class="fav"
+    [class.is-fav]="favorito()"
+    [attr.aria-pressed]="favorito()"
+    [attr.aria-label]="favorito() ? 'Remover dos favoritos' : 'Adicionar aos favoritos'"
+    (click)="onToggle($event)"
+  >
+    {{ favorito() ? '♥' : '♡' }}
+  </button>
+</article>
